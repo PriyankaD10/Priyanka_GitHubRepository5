@@ -1,6 +1,8 @@
 package model;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
@@ -8,6 +10,10 @@ public class Product {
 	public Product(){
 		
 		
+	}
+	public String toString(){
+		
+		return id+" "+productname+" "+productdescription+" "+productprice+" "+category+" "+status;
 	}
 
 	/*public Product(int productID, String productName, String productDescription, float productPrice, String category,
@@ -21,6 +27,7 @@ public class Product {
 		this.status = status;
 	}*/
 	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
 	private String productname;
 	private String productdescription;

@@ -116,7 +116,8 @@
                 <td>${item.category}</td>
 
                 <td>${item.status}</td>
-
+				
+				<td><a href="ProductDetails">Details</a>
             </tr>
 </c:forEach>
             

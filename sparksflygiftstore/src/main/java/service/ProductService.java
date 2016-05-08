@@ -22,7 +22,7 @@ public class ProductService {
 	ProductDAOImplement dao;
 
 	
-	/*public void insert(Product p) {
+	public void insert(Product p) {
 		dao.insert(p);
 		
 	}
@@ -30,14 +30,14 @@ public class ProductService {
 	public void update(Product p) {
 		dao.update(p);
 		
-	}*/
+	}
 	
 	public List searchAll() {
 		
 		return dao.searchAll();
 	}
 	
-	/*public Product search(int productid) {
+	public Product search(int productid) {
 		// TODO Auto-generated method stub
 		return dao.search(productid);
 	}
@@ -45,6 +45,6 @@ public class ProductService {
 	public void delete(int productid) {
 		dao.delete(productid);
 		
-	}*/
+	}
 	
 }

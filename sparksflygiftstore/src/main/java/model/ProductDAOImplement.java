@@ -5,6 +5,8 @@ import java.util.List;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
@@ -15,6 +17,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 public class ProductDAOImplement {
 
+	private static final Logger logger = LoggerFactory.getLogger(ProductDAOImplement.class);
+	 
+
 	@Autowired
 	private SessionFactory sf;	
 	
@@ -23,29 +28,38 @@ public class ProductDAOImplement {
 		
 	}
 	
-	/*public void insert(Product p) {
-		session.getCurrentSession().save(p);
+	public void insert(Product p) {
+		sf.getCurrentSession().persist(p);
+		logger.info("Person saved successfully, Person Details="+p);
 		
-	}*/
-
-	/*public void update(Product p) {
-		session.getCurrentSession().update(p);
-		
-	}*/
-
-	public List<Product> searchAll() {
-		Session session= sf.getCurrentSession();
-				return session.createQuery(" from Product").list();
 	}
 
-	/*public Product search(int productid) {
+	public void update(Product p) {
+		sf.getCurrentSession().update(p);
+		logger.info("Person saved successfully, Person Details="+p);
 		
-		return (Product) session.getCurrentSession().get(Product.class, productid);
+	}
+
+	public List<Product> searchAll() {
+		List<Product> productList=new ArrayList();
+		Session session= sf.getCurrentSession();
+		logger.info("Person saved successfully, Person Details");		
+		productList=session.createQuery(" from Product").list();
+		for(Product p : productList){
+            logger.info("Person List::"+p);
+        }
+		return productList;
+				
+	}
+
+	public Product search(int productid) {
+		
+		return (Product) sf.getCurrentSession().get(Product.class, productid);
 	}
 
 	public void delete(int productid) {
-		session.getCurrentSession().delete(productid);
+		sf.getCurrentSession().delete(productid);
 		
-	}*/
+	}
 
 }

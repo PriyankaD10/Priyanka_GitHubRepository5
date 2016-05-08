@@ -34,5 +34,10 @@ public class HomeController {
 				return "LandingPage";
 		}
 		
+		@RequestMapping("/EnterProduct")
+		public String showEnterProductsMessage() {
+				return "EnterProduct";
+		}
+		
 		
 }

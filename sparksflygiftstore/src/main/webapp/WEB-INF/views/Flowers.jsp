@@ -72,7 +72,7 @@
                 <th>Category</th>
 
                 <th>Status</th>
-
+				<th> View Details </th>
             </tr>
 
         </thead>
@@ -92,7 +92,7 @@
                 <th>Category</th>
 
                 <th>Status</th>
-
+				<th> View Details </th>
             </tr>
 
         </tfoot>
@@ -116,7 +116,7 @@
                 <td>${item.category}</td>
 
                 <td>${item.status}</td>
-
+				<td><a href="ProductDetails">Details</a>
             </tr>
 </c:forEach>
             

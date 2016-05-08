@@ -55,4 +55,13 @@ public class ModelController {
 			model.addObject("ProductData",productlist);
 			return model;
 		}
+		
+		@RequestMapping(value="/ProductDetails/{productid}", method=RequestMethod.GET )
+		public ModelAndView getProductDetails(@PathVariable(value="productid") String pid) {
+			
+			String viewname ="ProductDetails_"+pid;
+			ModelAndView model= new ModelAndView(viewname);
+			model.addObject("productid",pid);
+			return model;
+		}
 }

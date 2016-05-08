@@ -104,19 +104,25 @@
                 <h2 class="page-header">Take a Look</h2>
             </div>
             <div class="col-md-4 col-sm-6">
+            <center>
                 <a href="Greetings">
                    <img class="img-responsive img-portfolio img-hover" src="resources/images/icon1.JPG" alt="" height="150px" width="150px" onmouseover="bigImg(this)"  onmouseout="normalImg(this)" />
                 </a>
+             </center>
             </div>
             <div class="col-md-4 col-sm-6">
+            <center>
                 <a href="Gifts">
                     <img class="img-responsive img-portfolio img-hover" src="resources/images/icon2.jpg" alt="" height="150px" width="150px" onmouseover="bigImg(this)"  onmouseout="normalImg(this)" />
                 </a>
+             </center>
             </div>
             <div class="col-md-4 col-sm-6">
+            <center>
                 <a href="Flowers">
                     <img class="img-responsive img-portfolio img-hover" src="resources/images/icon3.jpg" alt="" height="150px" width="150px" onmouseover="bigImg(this)"  onmouseout="normalImg(this)" />
                 </a>
+            </center>
             </div>
 
         </div>
