@@ -78,7 +78,7 @@
 
 									</thead>
 
-						<!-- 		<tfoot>
+								<tfoot>
 
 								<tr>
 
@@ -99,8 +99,8 @@
 								</tr>
 
 								</tfoot>
- -->
-								<tbody>
+								 
+							<tbody>
         
 								<tr>
         

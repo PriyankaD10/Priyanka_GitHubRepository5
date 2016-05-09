@@ -26,7 +26,7 @@ public class ModelController {
 				return model;
 		}
 		
-		@RequestMapping("/Greetings")
+		/*@RequestMapping("/Greetings")
 		public ModelAndView getProductDetailsGreetings(HttpServletRequest request, HttpServletResponse response) {
 			
 			productlist=p.searchAll();
@@ -34,7 +34,7 @@ public class ModelController {
 			ModelAndView model= new ModelAndView("Greetings");
 			model.addObject("ProductData",productlist);
 			return model;
-		}
+		}*/
 		
 		@RequestMapping("/Gifts")
 		public ModelAndView getProductDetailsGifts(HttpServletRequest request, HttpServletResponse response) {
@@ -56,12 +56,12 @@ public class ModelController {
 			return model;
 		}
 		
-		@RequestMapping(value="/ProductDetails/{productid}", method=RequestMethod.GET )
+		/*@RequestMapping(value="/ProductDetails/{productid}", method=RequestMethod.GET )
 		public ModelAndView getProductDetails(@PathVariable(value="productid") String pid) {
 			
 			String viewname ="ProductDetails_"+pid;
 			ModelAndView model= new ModelAndView(viewname);
 			model.addObject("productid",pid);
 			return model;
-		}
+		}*/
 }

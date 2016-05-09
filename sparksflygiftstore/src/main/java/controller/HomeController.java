@@ -34,8 +34,8 @@ public class HomeController {
 				return "LandingPage";
 		}
 		
-		@RequestMapping("/ProductDetails_2")
+		/*@RequestMapping("/ProductDetails")
 		public String showEnterProductsMessage() {
-				return "ProductDetails_2";
-		}
+				return "ProductDetails";
+		}*/
 }
