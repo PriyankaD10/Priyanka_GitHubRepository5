@@ -4,7 +4,7 @@ import org.springframework.*;
 import org.springframework.web.bind.annotation.*;
 
 import org.springframework.web.servlet.*;
- 
+
 @Controller
 public class HomeController {
 	
@@ -38,6 +38,4 @@ public class HomeController {
 		public String showEnterProductsMessage() {
 				return "ProductDetails_2";
 		}
-		
-		
 }

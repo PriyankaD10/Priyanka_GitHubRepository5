@@ -5,27 +5,21 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+
+
+
+
 @Entity
 public class Product {
-	public Product(){
-		
-		
+
+public Product(){
+			
 	}
 	public String toString(){
 		
 		return id+" "+productname+" "+productdescription+" "+productprice+" "+category+" "+status;
 	}
 
-	/*public Product(int productID, String productName, String productDescription, float productPrice, String category,
-			String status) {
-		
-		this.id = productID;
-		this.productname = productName;
-		this.productdescription = productDescription;
-		this.productprice = productPrice;
-		this.category = category;
-		this.status = status;
-	}*/
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
@@ -34,6 +28,7 @@ public class Product {
 	private float productprice;
 	private String category;
 	private String status;
+	
 	public int getId() {
 		return id;
 	}
@@ -70,7 +65,16 @@ public class Product {
 	public void setStatus(String status) {
 		this.status = status;
 	}
-	
-	
-	
+
+	/*public Product(int productID, String productName, String productDescription, float productPrice, String category,
+			String status) {
+		
+		this.id = productID;
+		this.productname = productName;
+		this.productdescription = productDescription;
+		this.productprice = productPrice;
+		this.category = category;
+		this.status = status;
+	}*/
+
 }

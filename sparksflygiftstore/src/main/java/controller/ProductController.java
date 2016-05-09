@@ -1,5 +1,6 @@
 package controller;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -16,16 +17,16 @@ import service.ProductService;
 public class ProductController {
 	
 	@Autowired
-	private ProductService productService;
+	 ProductService productService;
 	/*	@Autowired(required=true)
-	@Qualifier(value="productService")
-	public void setProductService(ProductService ps){
+		@Qualifier(value="productService")
+		public void setProductService(ProductService ps){
 		
-		 this.productService=ps;
+			this.productService=ps;
 		 
 		
-	}
-*/
+		}*/
+
 	@RequestMapping(value = "/Product", method = RequestMethod.GET)
     public String listProduct(Model model) {
         model.addAttribute("product", new Product());
@@ -50,7 +51,7 @@ public class ProductController {
 	    }
 	     
 	    @RequestMapping("/remove/{id}")
-	    public String removePerson(@PathVariable("id") int id){
+	    public String removeProduct(@PathVariable("id") int id){
 	         
 	        this.productService.delete(id);
 	        return "redirect:/Product";

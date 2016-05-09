@@ -1,7 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-  <%@ page import="model.Product,java.util.*,org.springframework.web.servlet.ModelAndView" %>
-  <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ page import="model.Product,java.util.*,org.springframework.web.servlet.ModelAndView" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
  
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -42,7 +41,7 @@
                     	<br></br></br>
     					<br><br>                	
                     	<br>
-                    	<img width="350"  height ="350" controls  src="resources/images/flower1.jpg" /><br><br>
+                    	<img width="350"  height ="350" controls  src="resources/images/flower1.jpg"/><br><br>
                     	
                     	</div>
                     	<br></br></br><br></br></br>
@@ -129,9 +128,9 @@
 </div>
 </div>
 <br><br><br><br>
-<div class="form-bottom">
+								<div class="form-bottom">
 								  <img style="position: relative; right:15px" class="img-responsive" src="resources/images/flower4.jpg" alt="">	                 
-			 </div>
+								</div>
                         </div>
                     </div>
                 </div>
