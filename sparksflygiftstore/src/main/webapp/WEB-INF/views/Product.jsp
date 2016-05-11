@@ -1,7 +1,8 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ page session="false" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
-<%@ page session="false" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 TRANSACTIONAL//EN" "HTTP://www.e3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -41,7 +42,13 @@
 	                    Speak your heart and gift your special one.
 	                     <p>You can create products from here to the site to help customers experience shopping cool stuffs.</p>
 	                     <p>Know more about the <a href="http://azmind.com"><strong>Terms and Conditions</strong></a>, for shopping here and shop as you like!</p>
-                        
+                        <br><br>
+                        <p>
+                        <c:if test="${pageContext.request.userPrincipal.name!=null}">
+                        	<c:out value="${pageContext.request.userPrincipal.name}"/> &nbsp;&nbsp;
+                        	<a href='<c:url value="logout"/>'>Sign out</a>
+                        </c:if>
+                        </p>
                  </div>
               </div> 
 
@@ -50,13 +57,12 @@
                     	</div>
                         		<h3>Add Product</h3>
 								<div>
-                        			 
                             		 <p>Fill the form to add new product:</p>
                         		</div>
-                        	
                   
 								<c:url var="addAction" value="/Product/add" ></c:url>
-												<form:form action="${addAction}" modelAttribute="product">
+												
+												<form:form action="Product/add" commandName="product" enctype="multipart/form-data" method="post">
 												<table  width="40%" cellpadding="5" cellspacing="3">
     											<c:if test="${!empty product.productname}">
     											<tr>
@@ -122,8 +128,21 @@
 											            <form:input path="status" />
 											        </td>
 											    </tr>
+											    
+											    <tr>
+    												<td>
+    													<form:label path="image">
+    													<spring:message text="Upload Image"/>
+    													</form:label>
+    												</td>
+    											<td>
+    													<form:input path="image" type="file"/>
+    											</td>
+    										</tr>
+											    
 											    <tr>
 											        <td colspan="2">
+											       
 											          <c:if test="${empty product.productname}">
 											                <input type="submit" value="<spring:message text="Add Product"/>" />
 											            </c:if>
@@ -189,3 +208,4 @@ $(document).ready(function(){
 });
 </script>
 </html>
+

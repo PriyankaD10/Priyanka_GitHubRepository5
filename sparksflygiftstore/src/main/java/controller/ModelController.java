@@ -26,15 +26,15 @@ public class ModelController {
 				return model;
 		}
 		
-		/*@RequestMapping("/Greetings")
+		@RequestMapping("/Greetings")
 		public ModelAndView getProductDetailsGreetings(HttpServletRequest request, HttpServletResponse response) {
 			
 			productlist=p.searchAll();
 			
 			ModelAndView model= new ModelAndView("Greetings");
-			model.addObject("ProductData",productlist);
+			model.addObject("listProduct",productlist);
 			return model;
-		}*/
+		}
 		
 		@RequestMapping("/Gifts")
 		public ModelAndView getProductDetailsGifts(HttpServletRequest request, HttpServletResponse response) {
@@ -42,7 +42,7 @@ public class ModelController {
 			productlist=p.searchAll();
 			
 			ModelAndView model= new ModelAndView("Gifts");
-			model.addObject("ProductData",productlist);
+			model.addObject("listProduct",productlist);
 			return model;
 		}
 		
@@ -52,7 +52,7 @@ public class ModelController {
 			productlist=p.searchAll();
 			
 			ModelAndView model= new ModelAndView("Flowers");
-			model.addObject("ProductData",productlist);
+			model.addObject("listProduct",productlist);
 			return model;
 		}
 		
