@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.*;
 
 import org.springframework.web.servlet.*;
 
+import model.User;
+
 @Controller
 public class HomeController {
 	
@@ -19,7 +21,8 @@ public class HomeController {
 	}
 	 
 		@RequestMapping("/Register")
-		public String showRegisterMessage() {
+		public String showRegisterMessage(Model model) {
+			model.addAttribute("user", new User());
 				return "Register";
 		}
 		
@@ -30,7 +33,7 @@ public class HomeController {
 		
 		@RequestMapping("/TermAndCondition")
 		public String showTermsAndConditionMessage() {
-				return "TermsAndCondition";
+				return "Terms";
 		}
 		
 		@RequestMapping("/LandingPage")
@@ -43,6 +46,25 @@ public class HomeController {
 				return "SignIn";
 		}
 		
+		@RequestMapping("/uploadImage")
+		public String showImageUploadForm() {
+				return "ImageUploadForm";
+		}
+		
+		@RequestMapping("/RegisterSuccessful")
+		public String showRegisterSuccessful() {
+				return "RegisterSuccessful";
+		}
+		
+		
+		
+		
+		@RequestMapping("/ContactUs")
+		public String showGreetings() {
+			
+			
+				return "ContactUs";
+		}
 		
 		
 		 @RequestMapping(value = "/403", method = RequestMethod.GET)

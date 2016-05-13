@@ -46,7 +46,7 @@
                         <a href="Register">Register</a>
                     </li>
                     <li>
-                        <a href="contact.html">Contact</a>
+                        <a href="ContactUs">Contact</a>
                     </li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Categories<b class="caret"></b></a>

@@ -46,7 +46,7 @@
       
       <script>
 $(document).ready(function(){
-    $('#product').dataTable();
+    $('#product').dataTable({"oSearch": {"sSearch": "${param.name}"}});
 });
 </script>
   <nav class="navbar navbar-inverse navbar-fixed-bottom">

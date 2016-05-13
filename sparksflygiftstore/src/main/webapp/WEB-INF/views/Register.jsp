@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
- 
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -13,6 +15,14 @@
       
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<style>
+.error {
+    color: #ff0000;
+    font-style: italic;
+    font-weight: bold;
+}
+</style>
 
 </head>
 <body>
@@ -55,34 +65,112 @@
                         		</div>
                             </div>
                             <div class="form-bottom">
-			                    <form role="form" action="" method="post" class="registration-form">
-			                    	<div class="form-group" height="100" width="200">
-			                    		<label class="sr-only" for="form-first-name">First name</label>
-			                        	<input type="text" name="form-first-name" placeholder="First name..." class="form-first-name form-control" id="form-first-name">
-			                        </div>
-			                        <div class="form-group" height="100" width="200">
-			                        	<label class="sr-only" for="form-last-name">Last name</label>
-			                        	<input type="text" name="form-last-name" placeholder="Last name..." class="form-last-name form-control" id="form-last-name">
-			                        </div>
-			                        <div class="form-group" height="100" width="200">
-			                        	<label class="sr-only" for="form-email">Email</label>
-			                        	<input type="text" name="form-email" placeholder="Email..." class="form-email form-control" id="form-email">
-			                        </div>
-			                        	<div class="form-group" height="100" width="200">
-			                    		<label class="sr-only" for="form-password">Password</label>
-			                        	<input type="password" name="form-password" placeholder="Password..." class="form-password form-control" id="form-password">
-			                        </div>
-			                        	<div class="form-group" height="100" width="200">
-			                    		<label class="sr-only" for="form-confirm-password">Confirm Password</label>
-			                        	<input type="password" name="form-confirm-password" placeholder="Confirm Password..." class="form-password form-control" id="form-password">
-			                        </div>
-			                        	<div class="form-group" height="300" width="500">
-			                    		<label class="sr-only" for="form-gender">Gender</label>
-			                        	Male : <input type="radio" name="form-gender"   value="male"  id="form-gender-male" checked/>
-			                        	Female : <input type="radio" name="form-gender" value="female" id="form-gender-female"/>
-			                        </div>
-			                        <button type="submit" class="btn">Register!</button>
-			                    </form>
+			     			
+			     				<form:form action="RegisterUser" commandName="user" method="post">
+			     					<table  width="80%" height="80%"  cellpadding="5" cellspacing="5">
+			     					
+    											<tr>
+        										<td>
+            									<form:label path="firstname">
+                									<spring:message text="First Name"/>
+            									</form:label>
+        										</td>
+        										<td>
+            										<form:input path="firstname"/>
+        										</td> 
+        										 <td><form:errors path="firstname" cssClass="error" /></td>
+   												</tr>
+       											<tr>
+        											<td>
+            											<form:label path="lastname">
+                											<spring:message text="Last Name"/>
+            											</form:label>
+        											</td>
+        											<td>
+            										<form:input path="lastname" />
+        											</td> 
+        											 <td><form:errors path="lastname" cssClass="error" /></td>
+    												</tr>
+       												<tr>
+        												<td>
+											            <form:label path="username">
+											                <spring:message text="Username"/>
+											            </form:label>
+											        	</td>
+												        <td>
+												            <form:input path="username" />
+												        </td>
+												         <td><form:errors path="username" cssClass="error" /></td> 
+											    	</tr>
+												    <tr>
+												        <td>
+												            <form:label path="email">
+												                <spring:message text="Email"/>
+												            </form:label>
+												        </td>
+												        <td>
+												            <form:input path="email" />
+												        </td>
+												         <td><form:errors path="email" cssClass="error" /></td>
+												    </tr>
+												    
+												    <tr>
+												        <td>
+												            <form:label path="password">
+												                <spring:message text="Password"/>
+												            </form:label>
+												        </td>
+												        <td>
+												            <form:input path="password" />
+												        </td>
+												         <td><form:errors path="password" cssClass="error" /></td>
+												    </tr>
+												    
+											        <tr>
+											        <td>
+											            <form:label path="shippingaddress">
+											                <spring:message text="Shipping Address"/>
+											            </form:label>
+											        </td>
+											        <td>
+											            <form:input path="shippingaddress" />
+											        </td>
+											         <td><form:errors path="shippingaddress" cssClass="error" /></td>
+											    </tr>
+										    	
+											    
+											    <tr>
+											        <td>
+											            <form:label path="billingaddress">
+											                <spring:message text="Billing Address"/>
+											            </form:label>
+											        </td>
+											        <td>
+											            <form:input path="billingaddress" />
+											        </td>
+											       
+											    </tr>
+										    	<tr>
+											        <td>
+											            <form:label path="gender">
+											                <spring:message text="Gender"/>
+											            </form:label>
+											        </td>
+											        <td>
+											             <form:radiobutton path="gender" value='Male'/>Male <form:radiobutton path="gender" value='Female'/>Female
+											        </td>
+											        <td><form:errors path="gender" cssClass="error" /></td>
+											    </tr>
+										    	
+											    <tr>
+											        <td colspan="2">
+											                <input type="submit" value="<spring:message text="Register"/>" />  
+													</td>
+													
+											</tr>
+			     					
+			     					</table>
+			     				</form:form>               
 		                    </div>
                         </div>
                     </div>

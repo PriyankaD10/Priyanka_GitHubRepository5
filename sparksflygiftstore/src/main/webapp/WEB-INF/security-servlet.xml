@@ -19,7 +19,7 @@
  
         <!--  <intercept-url pattern="/UserProduct**" access="hasAnyRole('ROLE_USER', 'ROLE_ADMIN')" />
         -->
-        <intercept-url pattern="/AdminProduct**" access="hasRole('ROLE_ADMIN')" />
+        <!--  <intercept-url pattern="/AdminProduct**" access="hasRole('ROLE_ADMIN')" />-->
         <!-- <intercept-url pattern="/other/**" access="isAuthenticated()" /> -->
  
         <access-denied-handler error-page="/403" />

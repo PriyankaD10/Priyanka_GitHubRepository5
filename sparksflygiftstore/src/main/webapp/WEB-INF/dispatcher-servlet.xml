@@ -36,6 +36,10 @@ http://www.springframework.org/schema/mvc/spring-mvc-3.1.xsd
 	
 	<bean id="p" class="service.ProductService" />
 	<bean id="dao" class="model.ProductDAOImplement" />
+	
+	<bean id="userservice" class="service.UserService" />
+	<bean id="userdao" class="model.UserDAOImplement" />
+	
 	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
 	<property name="maxUploadSize" value="1024000" />
  

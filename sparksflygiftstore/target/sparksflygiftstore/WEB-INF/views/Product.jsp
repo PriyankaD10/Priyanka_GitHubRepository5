@@ -62,7 +62,7 @@
                   
 								<c:url var="addAction" value="/Product/add" ></c:url>
 												
-												<form:form method="post" action="${addAction}" modelAttribute="product" enctype="multipart/form-data">
+												<form:form action="${addAction}" modelAttribute="product" method="post">
 												<table  width="40%" cellpadding="5" cellspacing="3">
     											<c:if test="${!empty product.productname}">
     											<tr>
@@ -128,17 +128,7 @@
 											            <form:input path="status" />
 											        </td>
 											    </tr>
-											    
-											    <tr>
-    												<td>
-    													<form:label path="image">
-    													<spring:message text="Upload Image"/>
-    													</form:label>
-    												</td>
-    											<td>
-    													<form:input path="image" type="file"/>
-    											</td>
-    										</tr>
+										    	
 											    
 											    <tr>
 											        <td colspan="2">
@@ -154,6 +144,7 @@
 </table>
 </form:form>
 
+<a href="uploadImage">Upload Image</a>
 
 <h3>Product List</h3>
 <!-- <div style="height:500px; width:500px">

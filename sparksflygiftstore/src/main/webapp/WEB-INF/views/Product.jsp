@@ -41,7 +41,7 @@
                      <p>
 	                    Speak your heart and gift your special one.
 	                     <p>You can create products from here to the site to help customers experience shopping cool stuffs.</p>
-	                     <p>Know more about the <a href="http://azmind.com"><strong>Terms and Conditions</strong></a>, for shopping here and shop as you like!</p>
+	                     <p>Know more about the <a href="TermsAndCondition"><strong>Terms and Conditions</strong></a>, for shopping here and shop as you like!</p>
                         <br><br>
                         <p>
                         <c:if test="${pageContext.request.userPrincipal.name!=null}">
@@ -53,7 +53,7 @@
               </div> 
 
                     	<div class="form-top-right">
-                    		<img width="150"  height ="150" controls  src="resources/images/flower1.jpg"/>
+                    		<img width="150"  height ="150" controls  src="resources/images/img10.jpg"/>
                     	</div>
                         		<h3>Add Product</h3>
 								<div>
@@ -62,7 +62,7 @@
                   
 								<c:url var="addAction" value="/Product/add" ></c:url>
 												
-												<form:form action="Product/add" commandName="product" enctype="multipart/form-data" method="post">
+												<form:form action="${addAction}" modelAttribute="product" method="post">
 												<table  width="40%" cellpadding="5" cellspacing="3">
     											<c:if test="${!empty product.productname}">
     											<tr>
@@ -128,17 +128,7 @@
 											            <form:input path="status" />
 											        </td>
 											    </tr>
-											    
-											    <tr>
-    												<td>
-    													<form:label path="image">
-    													<spring:message text="Upload Image"/>
-    													</form:label>
-    												</td>
-    											<td>
-    													<form:input path="image" type="file"/>
-    											</td>
-    										</tr>
+										    	
 											    
 											    <tr>
 											        <td colspan="2">
@@ -154,6 +144,7 @@
 </table>
 </form:form>
 
+<a href="uploadImage">Upload Image</a>
 
 <h3>Product List</h3>
 <!-- <div style="height:500px; width:500px">
