@@ -128,16 +128,61 @@
 
                 <td>${selectedproduct.status}</td>
                 
-                <td><input type="button" value="Buy Now" style="background-color:green; color:white" /></td>
+                <td><button type="button" class="btn btn-sm"   style="background-color:lightgreen; color:white" >Buy Now</button></td>
 
             </tr>
 
-</c:if>
+			</c:if>
         
-             </tbody>
+            </tbody>
 
     </table>
    </div>
+   
+     <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal">Share with Friend</button>
+     
+     <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Share With A Friend</h4>
+        </div>
+       <div class="modal-body">
+                
+                <form role="form" action="ShareProductPost?${_csrf.parameterName}=${_csrf.token}" " method="post">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Friend's Name</label>
+                      <input type="email" class="form-control" id="exampleInputName1" placeholder="Enter friend's name"/>
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Email address</label>
+                      <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email"/>
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputMessage1">Message</label>
+                      <textarea class="form-control" id="exampleInputMessage1" placeholder="Message">
+                       Chect Out at Sparks Fly.
+                       Product : ${selectedproduct.productname} 
+                       ${selectedproduct.productdescription}
+                       at Rs ${selectedproduct.productprice} only
+                       </textarea>
+                  </div>
+                  <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+                  <button type="submit" class="btn btn-default">Send</button>
+                </form>
+                
+                
+            </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
    
 </div>
 </div>

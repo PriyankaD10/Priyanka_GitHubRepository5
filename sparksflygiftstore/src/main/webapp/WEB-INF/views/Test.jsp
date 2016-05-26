@@ -1,12 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<%@ page import="model.Product,java.util.*,org.springframework.web.servlet.ModelAndView" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>SparksFly</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 
@@ -19,8 +15,6 @@
 <script type="text/javascript" src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 
 <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"/>
-
-<!-- ====== Angular JS and JSON=======  -->
 
 <script src="http://code.angularjs.org/1.4.8/angular.js"></script>
 <script src="http://code.angularjs.org/1.4.8/angular-resource.js"></script>
@@ -56,8 +50,6 @@ app.controller('myCtrl',function($scope){
 </head>
 <body ng-app="MyForm">
 
-<!-- ========== Header is started ========== -->
-<!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -119,8 +111,8 @@ app.controller('myCtrl',function($scope){
         $('.dropdown-toggle').dropdown()
     });
 </script>
-<!-- ========== Header is over ========== -->
-<br><br><br><br>
+
+
 <h3>Get the perfect gifts to gift </h3>
 
         <div class="top-content">
@@ -131,23 +123,20 @@ app.controller('myCtrl',function($scope){
                         <div class="col-sm-8 col-sm-offset-2 text">
                             <h1><strong>Sparks Fly</strong>&nbsp;&nbsp;<i style="color:red">Make moments</i><img style="display:inline" width="80"  height ="80" controls  src="resources/images/f_img1.jpg" /></h1>
                             <div class="description">
-                            	<p>
-	                            	Speak your heart and gift your special one.
+                            		<p>Speak your heart and gift your special one.</p>
 	                            	<p>You can create your free registration at our site to  experience shopping cool stuffs.</p>
 	                            	<p>Know more about the <a href="http://azmind.com"><strong>Terms and Conditions</strong></a>, for shopping here and shop as you like!</p>
-                            	</p>
+                            	
                             </div>
                         </div>
                     </div>
                     <div class="row">
-                    	<div class="col-sm-6 book">
-                    	<br></br></br>
-    					<br><br>                	
-                    	<br>
-                    	<img width="350"  height ="350" controls  src="resources/images/flower1.jpg" /><br><br>
+                    	<div class="col-sm-4 book">
+                    	<br><br><br><br><br><br>
+    					<img width="350"  height ="350" src="resources/images/flower1.jpg" /><br><br>
                     	
                     	</div>
-                    	<br></br></br><br></br></br>
+                    	<br><br><br><br><br><br>
                         <div class="col-sm-5 form-box">
                         	<div class="form-top">
                         		<div class="form-top-left">
@@ -155,9 +144,8 @@ app.controller('myCtrl',function($scope){
                             		 <p>Flower for your loved ones:</p>
                         		</div>
                         		<div class="form-top-right">
-                        			<div class="container-fluid">
-   
-	<div ng-controller="myCtrl">
+                        			<div class="container">
+										<div ng-controller="myCtrl">
 										<h4>Products</h4>  
 	     								<div>  
 	       								<pre>Choose any product , View Details link to know more</pre><hr />  
@@ -192,10 +180,12 @@ app.controller('myCtrl',function($scope){
 												</tr>
 										</tbody>
 										</table>
-		
-</div> 
+		<!-- <pagination total-items="totalItems" ng-model="currentPage"  
+             max-size="5" boundary-links="true"  
+             items-per-page="numPerPage" class="pagination-sm">  
+       </pagination>  --> 
 </div>
-   
+</div>
 </div>
 </div>
 <br><br><br><br>

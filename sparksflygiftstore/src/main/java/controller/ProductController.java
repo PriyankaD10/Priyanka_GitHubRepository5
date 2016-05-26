@@ -5,6 +5,7 @@ import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -24,6 +25,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
+
+import com.google.gson.Gson;
 
 import model.Product;
 import service.ProductService;
@@ -51,12 +54,25 @@ public class ProductController {
 
 	
 
-	@RequestMapping(value = "/ProductDetails", method = RequestMethod.GET)
+	/*@RequestMapping(value = "/ProductDetails", method = RequestMethod.GET)
     public String listProductforUser(Model model) {
         model.addAttribute("product", new Product());
         model.addAttribute("listProduct", this.productService.searchAll());
         return "ProductDetails";
-    }
+    }*/
+	
+	@RequestMapping("/ProductDetails")
+	public ModelAndView showTest() {
+		
+		List<Product>productlist=this.productService.searchAll();
+		String json = new Gson().toJson(productlist);  // converting list into Google Gson object which is a string
+		System.out.println(json);
+		ModelAndView model=new ModelAndView("ProductDetails");
+		model.addObject("listProduct",json);
+		return model;
+		
+			
+	}
 
 	
 	/*@RequestMapping("/ProductDetails")
@@ -80,10 +96,10 @@ public class ProductController {
 	    public String addProduct(@ModelAttribute("product") Product p ,HttpServletRequest request, HttpServletResponse response){
 		 	
 	        if(p.getId() == 0){
-	            //new person, add it
+	            //new product, add it
 	            this.productService.insert(p);
 	        }else{
-	            //existing person, call update
+	            //existing product, call update
 	        		this.productService.update(p);
 	        }
 	        

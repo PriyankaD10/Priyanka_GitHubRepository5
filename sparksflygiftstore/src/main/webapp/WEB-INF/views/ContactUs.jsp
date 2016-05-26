@@ -21,7 +21,7 @@ src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDY0kkJiTPVd2U7aTOAwhc9ySH6
 function initialize()
 {
 var mapProp = {
-  center:new google.maps.LatLng(22.5626300,88.3630400),
+  center:new google.maps.LatLng(22.550378,88.353621),
   zoom:10,
   mapTypeId:google.maps.MapTypeId.ROADMAP
   };

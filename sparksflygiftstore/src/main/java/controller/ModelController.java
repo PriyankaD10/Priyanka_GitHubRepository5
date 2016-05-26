@@ -5,6 +5,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.*;
 import org.springframework.web.servlet.*;
+
+import com.google.gson.Gson;
+
 import java.util.*;
 import model.Product;
 
@@ -26,15 +29,17 @@ public class ModelController {
 				return model;
 		}
 		
-		@RequestMapping("/Greetings")
-		public ModelAndView getProductDetailsGreetings(HttpServletRequest request, HttpServletResponse response) {
+		@RequestMapping(value="/ShareProductPost", method=RequestMethod.POST)
+		public String shareProduct(HttpServletRequest request, HttpServletResponse response) {
 			
-			productlist=p.searchAll();
+			/*productlist=p.searchAll();
 			
 			ModelAndView model= new ModelAndView("Greetings");
-			model.addObject("listProduct",productlist);
-			return model;
+			model.addObject("listProduct",productlist);*/
+			return "Done";
 		}
+		
+		/*
 		
 		@RequestMapping("/Gifts")
 		public ModelAndView getProductDetailsGifts(HttpServletRequest request, HttpServletResponse response) {
@@ -54,6 +59,21 @@ public class ModelController {
 			ModelAndView model= new ModelAndView("Flowers");
 			model.addObject("listProduct",productlist);
 			return model;
+		}*/
+		
+		@RequestMapping("/Test")
+		public ModelAndView showTest() {
+			
+
+			List<Product> listtojsp=new ArrayList<Product>();
+			productlist=p.searchAll();
+			String json = new Gson().toJson(productlist);  // converting list into Google Gson object which is a string
+			System.out.println(json);
+			ModelAndView model=new ModelAndView("Test");
+			model.addObject("listProduct",json);
+			return model;
+			
+				
 		}
 		
 		/*@RequestMapping(value="/ProductDetails/{productid}", method=RequestMethod.GET )
