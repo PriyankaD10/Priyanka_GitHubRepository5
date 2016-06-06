@@ -185,10 +185,23 @@ app.controller('myCtrl',function($scope){
 										            <td>{{ product.productprice}}</td>
 										            <td>{{ product.category}}</td>
 										            <td>{{ product.status}}</td>
-
-													<div ng-init="myVar = 'ProductDetails/'">
 													
-										            <td><a ng-href="{{myVar}}{{product.id}}">View Details</a></a></td>
+													<c:set var="pid" value="{{product.id}}"></c:set>
+										            
+										            <c:set var="pname" value="{{product.productname}}"></c:set>
+										            
+										            <c:set var="pdesc" value="{{product.productdescription}}"></c:set>
+										            
+										            <c:set var="pprice" value="{{product.productprice}}"></c:set>
+										            
+										            <c:set var="pcategory" value="{{product.category}}"></c:set>
+										            
+										            <c:set var="pstatus" value="{{product.status}}"></c:set>
+										             
+													<td><a href="Details?id=${pid}&productname=${pname}&productdescription=${pdesc}&productprice=${pprice}&productcategory=${pcategory}&productstatus=${pstatus}">View Details</a></a></td>
+												<!-- 	<div ng-init="myVar = 'ProductDetails/'">
+													
+										            <td><a ng-href="{{myVar}}{{product.id}}">View Details</a></a></td> -->
 												</tr>
 										</tbody>
 										</table>

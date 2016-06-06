@@ -112,7 +112,7 @@
         <tbody>
         
          <tr>
-        <c:if test="${! empty selectedproduct}">
+        <%-- <c:if test="${! empty selectedproduct}">
 			
             <tr>
 
@@ -132,14 +132,22 @@
 
             </tr>
 
-			</c:if>
-        
+			</c:if> --%>
+        <td><%= request.getParameter("id") %></td>
+ 			<td><%= request.getParameter("productname") %></td>
+ 			<td><%= request.getParameter("productdescription") %></td>
+ 			<td><%= request.getParameter("productprice") %></td>
+ 			<td><%= request.getParameter("productcategory") %></td>
+ 			<td><%= request.getParameter("productsatus") %></td>
+ 			<td><button type="button" class="btn btn-sm"   style="background-color:lightgreen; color:white" >Buy Now</button></td>
+ 			</tr>  
             </tbody>
 
     </table>
    </div>
-   
-     <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal">Share with Friend</button>
+    
+   <!-- Model control -->
+   <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal">Share with Friend</button>
      
      <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog">
@@ -152,14 +160,15 @@
         </div>
        <div class="modal-body">
                 
-                <form role="form" action="ShareProductPost?${_csrf.parameterName}=${_csrf.token}" " method="post">
-                <div class="form-group">
-                    <label for="exampleInputEmail1">Friend's Name</label>
-                      <input type="email" class="form-control" id="exampleInputName1" placeholder="Enter friend's name"/>
-                  </div>
+                <form role="form" action="ShareProduct" method="POST">
+               
                   <div class="form-group">
                     <label for="exampleInputEmail1">Email address</label>
                       <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email"/>
+                  </div>
+                   <div class="form-group">
+                      <label for="exampleInputSubject1">Subject</label>
+                      <input type="text" class="form-control" id="exampleInputSubject1" placeholder="Enter Subject"/>
                   </div>
                   <div class="form-group">
                     <label for="exampleInputMessage1">Message</label>
@@ -180,12 +189,13 @@
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         </div>
       </div>
-      
     </div>
-  </div>
+  </div> 
    
 </div>
-</div>
+ 
+ </div>
+
 <br><br><br><br>
 							<div class="form-bottom">
 								  <img style="position: relative; right:15px" class="img-responsive" src="resources/images/flower4.jpg" alt="">	                 

@@ -87,6 +87,13 @@ public class ProductController {
 		return model;
 	}*/
 	
+	@RequestMapping("/Details")
+ 	public String getProductDetailsInfo(HttpServletRequest request, Model model){
+ 		
+ 		model.addAttribute("selectedproduct",this.productService.search(Integer.parseInt(request.getParameter("id"))));
+ 		
+ 			return "ProductDetailsInfo";
+ 	}
 	
 	
 	
@@ -111,13 +118,13 @@ public class ProductController {
 	    }
 	
 	 
-	 	@RequestMapping("ProductDetails/{id}")
+	 	/*@RequestMapping("ProductDetails/{id}")
 	 	public String getProductDetailsInfo(@PathVariable("id") int id, Model model){
 		
 	 		model.addAttribute("selectedproduct",this.productService.search(id));
 	 		return "ProductDetailsInfo";
 	 	}
-	 
+	 */
 	 
 	    @RequestMapping("/remove/{id}")
 	    public String removeProduct(@PathVariable("id") int id){
