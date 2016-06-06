@@ -133,6 +133,10 @@
             </tr>
 
 			</c:if> --%>
+			
+			
+									
+			
         <td><%= request.getParameter("id") %></td>
  			<td><%= request.getParameter("productname") %></td>
  			<td><%= request.getParameter("productdescription") %></td>
@@ -164,19 +168,19 @@
                
                   <div class="form-group">
                     <label for="exampleInputEmail1">Email address</label>
-                      <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email"/>
+                      <input type="email" class="form-control" id="exampleInputEmail1" name="exampleInputEmail1" placeholder="Enter email"/>
                   </div>
                    <div class="form-group">
                       <label for="exampleInputSubject1">Subject</label>
-                      <input type="text" class="form-control" id="exampleInputSubject1" placeholder="Enter Subject"/>
+                      <input type="text" class="form-control" id="exampleInputSubject1" name="exampleInputSubject1" placeholder="Enter Subject"/>
                   </div>
                   <div class="form-group">
                     <label for="exampleInputMessage1">Message</label>
-                      <textarea class="form-control" id="exampleInputMessage1" placeholder="Message">
-                       Chect Out at Sparks Fly.
+                      <textarea class="form-control" id="exampleInputMessage1" name="exampleInputMessage1" placeholder="Message">
+                       Check Out at Sparks Fly.
                        Product : ${selectedproduct.productname} 
                        ${selectedproduct.productdescription}
-                       at Rs ${selectedproduct.productprice} only
+                       at Rs ${selectedproduct.productprice}0 only
                        </textarea>
                   </div>
                   <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>

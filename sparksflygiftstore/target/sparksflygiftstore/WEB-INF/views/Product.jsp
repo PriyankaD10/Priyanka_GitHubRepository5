@@ -1,3 +1,4 @@
+
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@ page session="false" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
@@ -41,7 +42,7 @@
                      <p>
 	                    Speak your heart and gift your special one.
 	                     <p>You can create products from here to the site to help customers experience shopping cool stuffs.</p>
-	                     <p>Know more about the <a href="http://azmind.com"><strong>Terms and Conditions</strong></a>, for shopping here and shop as you like!</p>
+	                     <p>Know more about the <a href="TermsAndCondition"><strong>Terms and Conditions</strong></a>, for shopping here and shop as you like!</p>
                         <br><br>
                         <p>
                         <c:if test="${pageContext.request.userPrincipal.name!=null}">
@@ -53,7 +54,7 @@
               </div> 
 
                     	<div class="form-top-right">
-                    		<img width="150"  height ="150" controls  src="resources/images/flower1.jpg"/>
+                    		<img width="150"  height ="150" controls  src="resources/images/img10.jpg"/>
                     	</div>
                         		<h3>Add Product</h3>
 								<div>

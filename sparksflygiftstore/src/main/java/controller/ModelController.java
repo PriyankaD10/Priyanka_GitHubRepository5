@@ -2,6 +2,10 @@ package controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.mail.MailSender;
+import org.springframework.mail.SimpleMailMessage;
 import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.*;
 import org.springframework.web.servlet.*;
@@ -12,6 +16,7 @@ import java.util.*;
 import model.Product;
 
 import model.ProductDAOImplement;
+import service.EmailAPI;
 import service.ProductService;
  
 @Controller
@@ -21,6 +26,12 @@ public class ModelController {
 	
 	@Autowired
 	ProductService p;
+	
+	@Autowired
+	private MailSender mailsender;
+	
+	
+	
 		@RequestMapping("/modelpage")
 		public ModelAndView getMessage(HttpServletRequest request, HttpServletResponse response) {
 			
@@ -29,14 +40,38 @@ public class ModelController {
 				return model;
 		}
 		
-		@RequestMapping(value="/ShareProductPost", method=RequestMethod.POST)
-		public String shareProduct(HttpServletRequest request, HttpServletResponse response) {
+		@RequestMapping(value="/ShareProduct", method=RequestMethod.POST)
+		public void shareProduct(HttpServletRequest request, HttpServletResponse response) {
 			
-			/*productlist=p.searchAll();
+			//String ConfFile="dispatcher-servlet.xml";
+			String toAddr=request.getParameter("exampleInputEmail1");
+			String subject=request.getParameter("exampleInputSubject1");
+			String body=request.getParameter("exampleInputMessage1");
+			String fromAddr = "priyanka.ds10@gmail.com";
 			
-			ModelAndView model= new ModelAndView("Greetings");
-			model.addObject("listProduct",productlist);*/
-			return "Done";
+			System.out.println(toAddr+" "+subject+" "+body);
+			//ConfigurableApplicationContext context = new ClassPathXmlApplicationContext(ConfFile);
+			 
+			// @Service("crunchifyEmail") <-- same annotation you specified in CrunchifyEmailAPI.java
+			//EmailAPI crunchifyEmailAPI = (EmailAPI) context.getBean("Email");
+			//String toAddr = "test@crunchify.com";
+	
+	 
+			// email subject
+			//String subject = "Hey.. This email sent by Crunchify's Spring MVC Tutorial";
+	 
+			// email body
+			//String body = "There you go.. You got an email.. Let's understand details on how Spring MVC works -- By Crunchify Admin";
+			SimpleMailMessage email = new SimpleMailMessage();
+			email.setFrom(fromAddr);
+			email.setTo(toAddr);
+			email.setSubject(subject);
+			email.setText(body);
+			mailsender.send(email);
+			//https://www.google.com/settings/security/lesssecureapps
+			//crunchifyEmailAPI.readyToSendEmail(toAddr, fromAddr, subject, body);
+
+			//return "ProductDetailsInfo";
 		}
 		
 		/*

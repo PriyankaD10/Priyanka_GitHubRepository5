@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>SparksFly</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 
@@ -17,8 +17,44 @@
 <link rel="stylesheet" href="http://cdn.datatables.net/1.10.2/css/jquery.dataTables.min.css"/> 
 <script type="text/javascript" src="http://cdn.datatables.net/1.10.2/js/jquery.dataTables.min.js"></script> 
 <script type="text/javascript" src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"/>
+
+<!-- ====== Angular JS and JSON=======  -->
+
+<script src="http://code.angularjs.org/1.4.8/angular.js"></script>
+<script src="http://code.angularjs.org/1.4.8/angular-resource.js"></script>
+<script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.11.0.js"></script>
+<script>
+
+var app=angular.module('MyForm',['ui.bootstrap','ngResource']);
+app.controller('myCtrl',function($scope){
+	
+	$scope.predicate='name';
+	$scope.reverse=true;
+	$scope.currentPage=1;
+	$scope.order=function(predicate){
+		$scope.reverse=($scope.predicate===predicate)?!$scope.reverse:false;
+		$scope.predicate=predicate;
+	};
+	$scope.products=${listProduct};
+	
+		$scope.totalItems = $scope.products.length;  
+	       $scope.numPerPage = 5;  
+	       $scope.paginate = function (value) {  
+	         var begin, end, index;  
+	         begin = ($scope.currentPage - 1) * $scope.numPerPage;  
+	         end = begin + $scope.numPerPage;  
+	         index = $scope.products.indexOf(value);  
+	         return (begin <= index && index < end);  
+		
+	};
+	
+});
+</script>
+
 </head>
-<body>
+<body ng-app="MyForm">
 
 <!-- ========== Header is started ========== -->
 <!-- Navigation -->
@@ -121,43 +157,57 @@
                         		<div class="form-top-right">
                         			<div class="container-fluid">
    
-	<table width="60%" class="table table-striped table-bordered"  id="example"  cellspacing="0" >
- 	<thead>  
-          <tr>  
-            <th>ID</th>  
-            <th>Name</th>  
-            <th>Description</th>  
-            <th>Price</th> 
-            <th>Category</th>  
-            <th>Status</th> 
-            <th>View Details</th>  
-          </tr>  
-  	</thead>  
-    <tbody>
-        <c:if test="${!empty listProduct}">
- 		  	<c:forEach items="${listProduct}" var="item"> 
-            
-            <tr>
-				
-                <td>${item.id}</td>
-
-                <td>${item.productname}</td>
-
-                <td>${item.productdescription}</td>
-
-                <td>${item.productprice}</td>
-
-                <td>${item.category}</td>
-
-                <td>${item.status}</td>
-				
-				<td><a href='<c:url value="/ProductDetails/${item.id}" />' >Details</a></td>
-				</tr>
-				</c:forEach>
-         </c:if>	 
-         
-     </tbody>
-    </table>   </div>
+	<div ng-controller="myCtrl">
+										<h4>Products</h4>  
+	     								<div>  
+	       								<pre>Choose any product , View Details link to know more</pre><hr />  
+										<table width="80%" class="table table-striped table-bordered" id="example">
+										<thead>
+										<tr>
+												
+												<th><a href="#" ng-click="order('id')" >Product ID</a></th>
+												<th><a href="#" ng-click="order('productname')" >Product Name</a></th>
+												<th><a href="#" ng-click="order('productdescription')">Product Description</a></th>
+												<th><a href="#" ng-click="order('productprice')">Product Price</a></th>
+												<th><a href="#" ng-click="order('category')">Category</a></th>
+												<th><a href="#" ng-click="order('status')">Status</a></th>
+												<th>Edit</th>
+										</tr>		
+										</thead>
+										<tbody>
+												
+												<tr ng-repeat="product in products | orderBy:predicate:reverse | filter:paginate" ng-class-odd="'odd'">  
+													
+													
+													<td>{{ product.id}}</td>  
+													<td>{{ product.productname}}</td> 
+													<td>{{ product.productdescription}}</td>  
+										            <td>{{ product.productprice}}</td>
+										            <td>{{ product.category}}</td>
+										            <td>{{ product.status}}</td>
+													
+													<c:set var="pid" value="{{product.id}}"></c:set>
+										            
+										            <c:set var="pname" value="{{product.productname}}"></c:set>
+										            
+										            <c:set var="pdesc" value="{{product.productdescription}}"></c:set>
+										            
+										            <c:set var="pprice" value="{{product.productprice}}"></c:set>
+										            
+										            <c:set var="pcategory" value="{{product.category}}"></c:set>
+										            
+										            <c:set var="pstatus" value="{{product.status}}"></c:set>
+										             
+													<td><a href="Details?id=${pid}&productname=${pname}&productdescription=${pdesc}&productprice=${pprice}&productcategory=${pcategory}&productstatus=${pstatus}">View Details</a></a></td>
+												<!-- 	<div ng-init="myVar = 'ProductDetails/'">
+													
+										            <td><a ng-href="{{myVar}}{{product.id}}">View Details</a></a></td> -->
+												</tr>
+										</tbody>
+										</table>
+		
+</div> 
+</div>
    
 </div>
 </div>
@@ -177,7 +227,7 @@
    
 <script>
 $(document).ready(function(){
-    $('#example').DataTable();
+    $('#example').DataTable({"oSearch": {"sSearch": "${param.name}"}});
 });
 </script>
 </body>

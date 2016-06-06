@@ -121,7 +121,7 @@
 												            </form:label>
 												        </td>
 												        <td>
-												            <form:input path="password" />
+												            <form:input path="password" type="password"/>
 												        </td>
 												         <td><form:errors path="password" cssClass="error" /></td>
 												    </tr>

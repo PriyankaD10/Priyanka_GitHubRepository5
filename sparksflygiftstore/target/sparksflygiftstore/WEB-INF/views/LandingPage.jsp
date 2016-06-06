@@ -29,7 +29,7 @@
 	<!-- Indicators --> 
 	<ol class="carousel-indicators"> 
     <li data-target="#myCarousel" data-slide-to="0" class="active"></li> 
-    <li data-target="#myCarousel" data-slide-to="1"></li> 
+    <li data-target="#myCarousel" data-slide-to="2"></li> 
      
    </ol> 
  
@@ -44,8 +44,11 @@
      		<img src="resources/images/img7.jpg" alt="flower2"  height="445" /> 
 	</div> 
 
+  <div class="item"> 
+     		<img src="resources/images/img6.jpg" alt="flower2"  height="445" /> 
+ </div> 
  
- 
+   
  
    <!-- Left and right controls --> 
    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev"> 
@@ -58,8 +61,9 @@
    </a> 
  </div> 
  </div> 
- 
- 
+ <br><br>
+
+<br><br>
 	<!-- Page Content --> 
     <div class="container"> 
          <!-- Marketing Icons Section --> 
@@ -76,7 +80,7 @@
 							</div> 
 								<div class="panel-body"> 
 									<p>Make family and friends feel special with personalized greetings cards  with quotes for friends and family on special occasions: Birthdays, Love, Birthday , Events , ‎Anniversary , Celebration. </p> 
-									<a href="#" class="btn btn-default">View</a> 
+									<a href="ProductDetails?name=Greetings" class="btn btn-default">View</a> 
 								</div> 
 							</div> 
 						</div> 
@@ -87,7 +91,7 @@
 								</div> 
 								<div class="panel-body"> 
 									<p>We pride ourselves on our quality, with beautiful flower bouquets that are guaranteed ... Enjoy free nominated delivery on all flowers & plants, plus add a free gift ...  </p> 
-									<a href="#" class="btn btn-default">View</a> 
+									<a href="ProductDetails?name=Flowers" class="btn btn-default">View</a> 
 								</div> 
 							</div> 
 					</div> 
@@ -98,7 +102,7 @@
                      </div> 
                      <div class="panel-body"> 
                          <p>Give a Gift that Changes Lives and Brings Happiness.Find the perfect little present for any occasion a gift that will always be cherished for years to come.Looking to buy gifts for friends and family or for yourself, check out our Wish Lists.</p> 
-                         <a href="#" class="btn btn-default">View</a> 
+                         <a href="ProductDetails?name=Gifts" class="btn btn-default">View</a> 
                      </div> 
                  </div> 
              </div> 
@@ -120,14 +124,14 @@
              </div> 
              <div class="col-md-4 col-sm-6"> 
              <center> 
-                 <a href="Greetings.jsp?name=Gifts"> 
+                 <a href="ProductDetails?name=Gifts"> 
                      <img class="img-responsive img-portfolio img-hover" src="resources/images/icon2.jpg" alt="" height="150px" width="150px" onmouseover="bigImg(this)"  onmouseout="normalImg(this)" /> 
                  </a> 
 				 </center> 
 				</div> 
 				<div class="col-md-4 col-sm-6"> 
 				<center> 
-					<a href="Greetings.jsp?name=Flowers"> 
+					<a href="ProductDetails?name=Flowers"> 
 						<img class="img-responsive img-portfolio img-hover" src="resources/images/icon3.jpg" alt="" height="150px" width="150px" onmouseover="bigImg(this)"  onmouseout="normalImg(this)" /> 
 					</a> 
 				</center> 
